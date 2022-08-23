@@ -27,13 +27,16 @@ export const ProductList = styled.div`
 `;
 
 export const ProductAreaAltoRoda = styled.div`
-
+    margin-top: 20px;
+    margin-bottom: 20px;
 `;
 
 export const ProductListAltoRoda = styled.div`
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
 `;
 
 export const ProductItemAltoRoda = styled.div`
-    
+   
 `;

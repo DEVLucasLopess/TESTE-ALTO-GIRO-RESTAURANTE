@@ -17,12 +17,12 @@ import Signup from './pages/Signup';
 export default ({Item}) => {
     const name = useSelector(state => state.user.name);
 
-    const Private = ({Item}) => {
-        console.log(Item);
-        const signed = true;
+    // const Private = ({Item}) => {
+    //     console.log(Item);
+    //     const signed = true;
 
-        return signed == true ? <Item /> : <Signin />
-    }
+    //     return signed == true ? <Item /> : <Signin />
+    // }
 
     return (
         <BrowserRouter>
@@ -36,17 +36,18 @@ export default ({Item}) => {
 
                     <Body>
                         <Switch>
-                            <Route exact path="/"> <HomeScreen /> </Route>
+                            <Route exact path="/"><HomeScreen /></Route>
+                            <Route exact path="/" element={<HomeScreen />} />
                             {/* 
                             <Route path="/login">
                                 <div>
                                    Login
                                 </div>
                             </Route> */}
-                            <Route exact path="/" element={<HomeScreen />} />
+{/*                       
                             <Route path="/" element={<Signin/>} />
                             <Route exact path="/signup" element={<Signup />} />
-                            <Route path="*" element={<Signin />} />
+                            <Route path="*" element={<Signin />} /> */}
                         </Switch>
                     </Body>
 

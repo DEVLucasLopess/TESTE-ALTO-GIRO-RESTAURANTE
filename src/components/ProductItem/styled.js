@@ -8,6 +8,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     color: #136713;
+    cursor: pointer;
 `;
 
 export const ProductPhotoArea = styled.div`
