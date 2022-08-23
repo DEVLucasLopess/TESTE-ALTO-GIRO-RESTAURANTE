@@ -25,3 +25,15 @@ export const ProductArea = styled.div`
 export const ProductList = styled.div`
 
 `;
+
+export const ProductAreaAltoRoda = styled.div`
+
+`;
+
+export const ProductListAltoRoda = styled.div`
+
+`;
+
+export const ProductItemAltoRoda = styled.div`
+    
+`;

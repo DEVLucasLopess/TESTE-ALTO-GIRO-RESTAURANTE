@@ -8,8 +8,8 @@ import {
         ProductPrice, 
         ProductIgredients, 
         ProductInfoArea,
-    
-        ProductButton } from './styled';
+        ProductButton
+    } from './styled';
 
 
 export default ({data}) => {
