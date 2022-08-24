@@ -20,6 +20,8 @@ export const Wrapper = styled.div`
 
 export const LoginTittle = styled.h1`
     text-align: center;
+    color: #0b4d0b;
+    margin-bottom: 45px;
 `;
 
 export const UserLoginForm = styled.div`
@@ -45,4 +47,15 @@ export const Button = styled.button`
     color: #fff;
     border-radius: 10px;
     cursor: pointer;
+`;
+
+export const LinkRedirect = styled.div`
+    text-align: end;
+    font-weight: bold;
+    color: #0b4d0b;
+    text-decoration: none;
+`;
+
+export const DadosError = styled.div`
+    color: red;
 `;

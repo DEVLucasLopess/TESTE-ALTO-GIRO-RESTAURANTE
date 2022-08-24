@@ -16,3 +16,11 @@ export const LinkIcon = styled.img`
     width: 30px;
     heigth: auto;
 `;
+
+export const Button = styled.button`
+    height: 30px;
+    width: 45px;
+    border-radius: 20px;
+    border: 1px solid #EDEDED;
+    cursor: pointer;
+`;

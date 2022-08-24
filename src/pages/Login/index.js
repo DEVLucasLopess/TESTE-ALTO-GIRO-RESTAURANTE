@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Container, Wrapper, LoginTittle, UserLoginForm, Button } from './styled';
+import { Container, Wrapper, LoginTittle, UserLoginForm, Button, LinkRedirect, DadosError } from './styled';
 import Input from '../../components/Input';
 import { useState } from 'react';
 import { query as q } from 'faunadb';
@@ -13,6 +13,7 @@ export default () => {
     const [ password, setPassword ] = useState('');
 
     const [cookies, setCookies, removeCookie] = useCookies(['auth.user']);
+    const [errorLogin, setErrorLogin] = useState('');
 
     const history = useHistory();
 
@@ -38,9 +39,9 @@ export default () => {
               if(user.data) {
                 setCookies('auth.user', user.data.email, {path: '/'});
                 history.push("/menu");
-              }
+              } 
         } catch (err) {
-            console.log(err.message);
+            setErrorLogin("Por falor, verifique o seus dados!");
         }
     }
 
@@ -50,17 +51,18 @@ export default () => {
                 <LoginTittle>Acessar o Sistema</LoginTittle>
                 <form autoComplete="nope" onSubmit={handleSubmit}>
                     <UserLoginForm>
-                        <Input label="Email" name="email" type="email" placeholder="Informe seu e-mail"  value={email} onChange={e => setEmail(e.target.value)}/>
+                        <Input label="Email" name="email" type="email" placeholder="Informe seu e-mail"  value={email} onChange={e => setEmail(e.target.value)}/><br/>
                         <Input label="Senha" name="password" type="password" placeholder="Informe sua senha" value={password} onChange={e => setPassword(e.target.value)}/>
+                        <DadosError> {errorLogin} </DadosError>
                     </UserLoginForm>
 
                     <Button type="submit" theme="contained-green" className="user-login__submit-button" rounded>
                         Entrar
                     </Button><br/><br/>
 
-                    <div>
+                    <LinkRedirect>
                         <Link to="/cadastro">Cadastrar</Link>
-                    </div>
+                    </LinkRedirect>
                 </form>
             </Wrapper>
         </Container>

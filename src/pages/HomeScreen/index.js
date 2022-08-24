@@ -5,20 +5,15 @@ import { useCookies } from "react-cookie";
 import { Container, 
         CategoryArea, 
         CategoryList, 
-        ProductArea, 
-        ProductList,
-
         ProductAreaAltoRoda,
-        ProductListAltoRoda,
-        ProductItemAltoRoda
-    
+        ProductListAltoRoda
+        
     } from './styled';
 
 import api from '../../api.js';
 
 import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
-import ProductItem from '../../components/ProductItem';
 import Plates from '../../components/Plates';
 
 export default () => {
@@ -37,13 +32,6 @@ export default () => {
         setPlates(plate.menu);
     }
 
-    // const getProducts = async () => {
-    //     const prods = await api.getProducts();
-    //     if(prods.error == '') {
-    //         setProducys(prods.result.data);
-    //     }
-    // }
-
     useEffect(() => {
         const getCategories = async () => {
             const cat = await api.getCategories();
@@ -59,10 +47,6 @@ export default () => {
             history.push("/");
         }
     }, []);
-
-    // useEffect(() => {
-    //     getProducts();
-    // }, [activeCategory]);
 
     useEffect(() => {
         getMenu();
@@ -97,15 +81,6 @@ export default () => {
                         </CategoryArea>
                     </>
                 }
-                {/* {products.length > 0 && 
-                    <ProductArea>
-                        <ProductList>
-                            {products.map((item, index) => ( 
-                                <ProductItem key={index} data={item} />
-                            ))}
-                        </ProductList>
-                    </ProductArea>
-                } */}
 
                 {plates.length > 0 && 
                     <ProductAreaAltoRoda>
