@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import { Container, 
         CategoryArea, 
         CategoryList, 
@@ -27,6 +28,8 @@ export default () => {
     const [products, setProducys] = useState([]);
     const [plates, setPlates] = useState([]);
 
+    const [cookies] = useCookies(['auth.user']);
+
     const [activeCategory, setActiveCategory] = useState(0);
 
     const getMenu = async () => {
@@ -49,6 +52,12 @@ export default () => {
             }
         }
         getCategories();
+    }, []);
+
+    useEffect (() => {
+        if(!cookies['auth.user']) {
+            history.push("/");
+        }
     }, []);
 
     // useEffect(() => {

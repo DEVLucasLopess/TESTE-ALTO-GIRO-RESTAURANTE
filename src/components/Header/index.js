@@ -19,7 +19,7 @@ export default ({ search, onSearch }) => {
         onSearch(event.target.value);
     }
 
-    return(
+    return (
         <Container>
             <Logo src="/assets/logo.png" />
             <SearchInput 

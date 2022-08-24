@@ -11,7 +11,7 @@ import {
     ProductButton
 } from './styled';
 
-export default ({data}) => {
+export default ({data, image }) => {
     const dayOfWeek = new Date(data.date);
 
     // console.log(dayOfWeek.getDay());
@@ -31,9 +31,7 @@ export default ({data}) => {
                 </div>
             } */}
             <ProductPhotoArea>
-                <ProductPhoto>
-                    
-                </ProductPhoto>
+                <ProductPhoto src="/assets/food-and-restaurant.png" />
             </ProductPhotoArea>
 
             <ProductInfoArea>
