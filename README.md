@@ -2,11 +2,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+Para rodar o projeto:
 
 ### `npm install`
 ### `npm start`
 
-Senha e usuario de teste:
-Login: admin@admin.com
-Senha: 123
+Tecnologias utilizadas no desenvolvimento:
+
+### `npm`
+### `styled-components`
+### `react-router-dom`
+### `faunadb`
+### `nookies`
+### `react-cookie`
+
