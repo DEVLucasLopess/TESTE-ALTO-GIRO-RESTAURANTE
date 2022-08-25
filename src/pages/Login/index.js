@@ -43,10 +43,8 @@ export default () => {
                 history.push("/menu");
               } 
         } catch (err) {
-            setErrorLogin("Por falor, verifique o seus dados!");
+            setErrorLogin("Por favor, verifique o seus dados!");
         }
-
-        
     }
 
     return (
