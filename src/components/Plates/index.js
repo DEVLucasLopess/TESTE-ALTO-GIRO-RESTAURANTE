@@ -9,8 +9,6 @@ import {
 	ProductPhoto,
 	ProductName,
 	ProductInfoArea,
-	ProductButton,
-	InfoAvatiation,
 	ContainerPlates,
     ContainerInfoPlates,
     InfoPlates,
@@ -32,18 +30,6 @@ export default ({ plates, id }) => {
 
 		return newPlates
 	}, [id])
-
-	const [avaliationButton, setAvaliationButton] = React.useState('')
-
-	const [optionSelect, setOptionSelect] = React.useState()
-
-	const handleAvaliationButton = () => {
-		setAvaliationButton(avaliationButton)
-	}
-
-	const handleChange = (event) => {
-		setOptionSelect({ value: event.target.value })
-	}
 
 	return (
 		<div>
@@ -77,25 +63,6 @@ export default ({ plates, id }) => {
                                         </ContainerDrink>
                                     </ContainerPlates>
 								</ProductName>
-								<InfoAvatiation>
-									{/* <form onSubmit={handleSubmit}>
-                                        <label>
-                                        Avalie esse prato:
-                                            <select>
-                                                <option value="Nota 1">1</option>
-                                                <option value="Nota 2">2</option>
-                                                <option value="Nota 3">3</option>
-                                                <option value="Nota 4">4</option>
-                                                <option value="Nota 5">5</option>
-                                            </select>
-                                        </label>
-                                        <input type="submit" value="Enviar" />
-                                    </form> */}
-
-									{/* <InfoButton onClick={handleAvaliationButton}>
-                                        Avaliar
-                                    </InfoButton> */}
-								</InfoAvatiation>
 							</ProductInfoArea>
 						</Container>
 					)
