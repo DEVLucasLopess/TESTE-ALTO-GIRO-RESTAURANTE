@@ -11,7 +11,10 @@ import {
 	ProductInfoArea,
 	ProductButton,
 	InfoAvatiation,
-	InfoButton,
+	ContainerPlates,
+    ContainerInfoPlates,
+    InfoPlates,
+    ContainerDrink
 } from './styled'
 
 export default ({ plates, id }) => {
@@ -54,14 +57,25 @@ export default ({ plates, id }) => {
 
 							<ProductInfoArea>
 								<ProductName value={item._id}>
-									<div>
-										{item.courses[0].name}
-										<br />
-										{item.courses[1].name}
-										<br />
-										{item.courses[2].name}
-										<br />
-									</div>
+                                    <ContainerPlates>
+									    <ContainerInfoPlates>
+                                            <InfoPlates>Pratos do dia:</InfoPlates>
+									    	{item.courses[0].name}
+									    	<br />
+									    	{item.courses[1].name}
+									    	<br />
+									    	{item.courses[2].name}
+									    	<br />
+									    </ContainerInfoPlates>
+                                        <div>
+                                            <InfoPlates>Sobremesa:</InfoPlates>
+                                            {item.desserts[0].name}
+                                        </div>
+                                        <ContainerDrink>
+                                            <InfoPlates>Bêbidas:</InfoPlates>
+                                            {item.drinks[0].name}
+                                        </ContainerDrink>
+                                    </ContainerPlates>
 								</ProductName>
 								<InfoAvatiation>
 									{/* <form onSubmit={handleSubmit}>
@@ -83,7 +97,6 @@ export default ({ plates, id }) => {
                                     </InfoButton> */}
 								</InfoAvatiation>
 							</ProductInfoArea>
-							<ProductButton src="/assets/next.png" />
 						</Container>
 					)
 				})}

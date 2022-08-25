@@ -13,6 +13,10 @@ export const Menu = styled.div`
     background-color: #136713;
     width: 80px;
     flex-direction: column;
+
+    @media (max-width: 629px) {
+        display: none;
+    }
 `;
 
 export const Footer = styled.div``;

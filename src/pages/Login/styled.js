@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
     height: 400px;
     width: 350px;
     padding: 1rem;
+
+    @media (max-width: 629px) {
+        width: 310px;
+    }
 `;
 
 export const LoginTittle = styled.h1`
@@ -58,4 +62,8 @@ export const LinkRedirect = styled.div`
 
 export const DadosError = styled.div`
     color: red;
+`;
+
+export const TextCadastro = styled.a`
+    text-decoration: none;
 `;

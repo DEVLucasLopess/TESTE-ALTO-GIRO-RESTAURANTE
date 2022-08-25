@@ -10,6 +10,15 @@ export const Inputs = styled.input`
     border-radius: 5px;
     border: 2px solid #D3D3D3;
     padding: 0px 0px 0px 10px;
+
+    @media (max-width: 630px) {
+        width: 300px;
+    }
+
+    @media (max-width: 400px) {
+        width: 300px;
+    }
+
 `;
 
 export const Label = styled.label`

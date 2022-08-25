@@ -2,7 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    padding: 15px; 
+    padding: 15px;
+
+    @media (max-width: 1126px) {
+        width: 97%;
+    }
+
+    @media (max-width: 550px) {
+        width: 94%;
+    }
 `;
 
 export const CategoryArea = styled.div`

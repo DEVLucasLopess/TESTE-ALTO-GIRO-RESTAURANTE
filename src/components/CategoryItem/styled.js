@@ -13,9 +13,21 @@ export const Container = styled.div`
     transition: all ease .3s;
     border: 1px solid #DEDEDE;
 
+    @media (max-width: 400px) {
+        width: 65px;
+        height: 65px;
+    }
+
 `;
 
 export const CategoryImage = styled.img`
     width: 55px;
     height: 55px;
+
+    @media (max-width: 361px) {
+        width: 50px;
+        height: 40px;
+    }
+
+
 `;

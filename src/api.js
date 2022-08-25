@@ -1,13 +1,8 @@
 const API_BASE = 'https://restaurante.altogiro.net:3003/v1'
 
-//Simulando uma API com imagens
-const API_BASE_IMG = 'https://restaurante.altogiro.net:3003/v1/menu/imagem'
-
 export default {
 	getCategories: async () => {
 		// GET /api/categories
-		// const res = await fetch(API_BASE_IMG);
-		// const jason = await res.json();
 		const json = [
 			{
 				id: 1,

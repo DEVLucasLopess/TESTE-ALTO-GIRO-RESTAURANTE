@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Inputs, Label } from './styled';
 
-export default ({label, name, type, value, onChange}) => {
+export default ({label, name, type, value, onChange, placeholder}) => {
     return(
        <Container>
             <Label> {label} </Label>
@@ -11,7 +11,8 @@ export default ({label, name, type, value, onChange}) => {
                 id={name} 
                 type={type} 
                 value={value} 
-                onChange={onChange} 
+                onChange={onChange}
+                placeholder={placeholder}
             />
        </Container>
     );

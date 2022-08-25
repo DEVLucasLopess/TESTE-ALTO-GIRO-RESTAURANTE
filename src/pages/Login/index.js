@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Container, Wrapper, LoginTittle, UserLoginForm, Button, LinkRedirect, DadosError } from './styled';
+import { Container, Wrapper, LoginTittle, UserLoginForm, Button, LinkRedirect, DadosError, TextCadastro } from './styled';
 import Input from '../../components/Input';
 import { useState } from 'react';
 
@@ -65,7 +65,7 @@ export default () => {
                     </Button><br/><br/>
 
                     <LinkRedirect>
-                        <Link to="/cadastro">Cadastrar</Link>
+                        <Link to="/cadastro"><TextCadastro>Cadastrar</TextCadastro></Link>
                     </LinkRedirect>
                 </form>
             </Wrapper>
