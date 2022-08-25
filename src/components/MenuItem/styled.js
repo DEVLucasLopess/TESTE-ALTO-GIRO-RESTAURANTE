@@ -18,9 +18,16 @@ export const LinkIcon = styled.img`
 `;
 
 export const Button = styled.button`
-    height: 30px;
+    height: 45px;
     width: 45px;
     border-radius: 20px;
     border: 1px solid #EDEDED;
     cursor: pointer;
+    background-image: url('/assets/sair.png');
+`;
+
+export const ImagQuit = styled.img`
+    padding-top: 2px;
+    height: 20px;
+    width: 20px;
 `;

@@ -5,15 +5,17 @@ export default ({data, activeCategory, setActiveCategory}) => {
 
     const handleCategoryClick = () => {
         setActiveCategory(data.id);
+        console.log(data.id);
     }
  
     return (
         <Container 
             active={activeCategory} 
             id={data.id}
-            onClick={handleCategoryClick}
-        >
+            onClick={handleCategoryClick}>
+                
             <CategoryImage src={data.image} />
+            
         </Container>
     );
 }

@@ -33,10 +33,11 @@ export const ProductAreaAltoRoda = styled.div`
 
 export const ProductListAltoRoda = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 30px;
 `;
 
-export const ProductItemAltoRoda = styled.div`
-   
+export const TextMenu = styled.h1`
+    text-align: center;
+    color: #fff;
 `;

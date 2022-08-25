@@ -3,8 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { Container, Wrapper, LoginTittle, UserLoginForm, Button, LinkRedirect, DadosError } from './styled';
 import Input from '../../components/Input';
 import { useState } from 'react';
+
 import { query as q } from 'faunadb';
 import { fauna } from "../../services/fauna";
+
 import { useCookies } from "react-cookie";
 import { useEffect } from 'react';
 
@@ -43,6 +45,8 @@ export default () => {
         } catch (err) {
             setErrorLogin("Por falor, verifique o seus dados!");
         }
+
+        
     }
 
     return (

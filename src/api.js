@@ -1,43 +1,46 @@
-const API_BASE = 'https://restaurante.altogiro.net:3003/v1/menu';
+const API_BASE = 'https://restaurante.altogiro.net:3003/v1';
 
-const API_BASE_2 = 'https://api.b7web.com.br/devsfood/api';
+//Simulando uma API com imagens
+const API_BASE_IMG = 'https://restaurante.altogiro.net:3003/v1/menu/imagem';
 
 export default {
     getCategories: async () => {
         // GET /api/categories
-        const res = await fetch(API_BASE_2+'/categories');
-        const json = await res.json();
+        // const res = await fetch(API_BASE_IMG);
+        // const jason = await res.json();
+        const json = [
+             {
+                "id":2,
+                "name": 'terça-feira',
+                "image": './assets/terca_copia_2.png',
+            }, {
+                "id":3,
+                "name": 'quarta-feira',
+                "image": './assets/quarta_copia_2.png',
+            }, {
+                "id":4,
+                "name": 'quinta-feira',
+                "image": './assets/quinta_copia_2.png',
+            }, {
+                "id":5,
+                "name": 'sexta-feira',
+                "image": './assets/sexta_copia_2.png',
+            }
+        ];
         return json;
     },
 
-    getImage: async () => {
-        const Image = [
-            {
-                img: './assets/segunda_copia_2.png',
-                title: 'segunda-feira'
-            },
-            {
-                img: './assets/terca_copia_2.png',
-                title: 'terca-feira'
-            },
-            {
-                img: '/assets/quarta_copia_2.png',
-                tile: 'quarta-feira'
-            },
-            {
-                img: '/assets/quinta_copia_2.png',
-                tile: 'quarta-feira'
-            },
-            {
-                img: '/assets/sexta_copia_2.png',
-                tile: 'quarta-feira'
-            }
-        ];
-    },
-
-        getMenu: async () => {
+    getMenu: async (search) => {
         // GEY /api/products
-        const res = await fetch(API_BASE);
+        let fields = {};
+
+        if (search != '') {
+            fields.search = search;
+        }
+
+        let queryString = new URLSearchParams(fields).toString();
+
+        const res = await fetch(API_BASE+'/menu?'+queryString);
         const json = await res.json();
         return json;
     }

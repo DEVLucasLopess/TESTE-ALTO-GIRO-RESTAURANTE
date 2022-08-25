@@ -39,3 +39,15 @@ export const ProductIgredients = styled.div`
 export const ProductButton = styled.img`
     width: 15px;
 `;
+
+export const InfoButton = styled.button`
+    height: 30px;
+    width: 60px;
+    background: red;
+    color: #000;
+    cursor: pointer;
+`;
+
+export const InfoAvatiation = styled.div`
+    
+`;

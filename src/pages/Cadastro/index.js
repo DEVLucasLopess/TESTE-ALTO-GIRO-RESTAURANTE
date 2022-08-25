@@ -3,8 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { Container, Wrapper, LoginTittle, UserLoginForm, Button, LinkRedirect } from './styled';
 import Input from '../../components/Input';
 import { useState } from 'react';
+
 import { query as q } from 'faunadb';
 import { fauna } from "../../services/fauna";
+
 import { useCookies } from "react-cookie";
 import { useEffect } from 'react';
 
@@ -26,21 +28,24 @@ export default () => {
         e.preventDefault();
 
         try {
-            const user = await fauna.query(
-                q.Get(
-                    q.Intersection(
-                        q.Match(q.Index('user_by_email'), email),
-                        q.Match(q.Index('user_by_password'), password),
-                    )
+            const user = await fauna.query (
+                q.Create (
+                    q.Collection("Users"),
+                    {
+                      data: {
+                        "email": email,
+                        "password": password
+                      }
+                    }
                 )
-              )
+            )
            
               if(user.data) {
                 setCookies('auth.user', user.data.email, {path: '/'});
                 history.push("/menu");
               }
         } catch (err) {
-            console.log(err.message);
+            alert("Usuario já cadastrado!");
         }
     }
 
@@ -55,7 +60,7 @@ export default () => {
                     </UserLoginForm>
 
                     <Button type="submit" theme="contained-green" className="user-login__submit-button" rounded>
-                        Entrar
+                        Cadastrar
                     </Button><br/><br/>
 
                     <LinkRedirect>

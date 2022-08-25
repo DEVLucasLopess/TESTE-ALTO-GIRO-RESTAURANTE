@@ -4,7 +4,9 @@ import { Container, Inputs, Label } from './styled';
 export default ({label, name, type, value, onChange}) => {
     return(
        <Container>
-            <Label> {label} </Label>
+            <Label>
+                {label}
+            </Label>
 
             <Inputs 
                 name={name}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory, useLocation } from 'react-router-dom';
-import { LinkArea, LinkIcon, Button } from './styled';
+import { LinkArea, LinkIcon, Button, ImagQuit } from './styled';
 import { useCookies } from "react-cookie";
 
 export default ({icon, link}) => {
@@ -13,7 +13,6 @@ export default ({icon, link}) => {
         removeCookie('auth.user', {path: '/'});
         history.push("/");
     }
-
 
     const handleLinkClick = (e) => {
         e.preventDefault();
@@ -30,7 +29,7 @@ export default ({icon, link}) => {
                 </LinkArea>
             </div>
             
-            <Button onClick={handleLogout}>Sair</Button>
+            <Button onClick={handleLogout}><ImagQuit src="/assets/sair.png"/></Button>
         </>
     );
 }
