@@ -20,36 +20,39 @@ import Plates from '../../components/Plates';
 let searchTimer = null;
 
 export default () => {
-    const [headerSearch, setHeaderSearch] = useState('');
-    const [activeSearch, setActiveSearch] = useState('');
+    const [headerSearch, setHeaderSearch] = useState('')
+	const [activeSearch, setActiveSearch] = useState('')
+	const [activeCategory, setActiveCategory] = useState(1);
 
     const [categories, setCategories] = useState([]);
 
-    const [products, setProducys] = useState([]);
     const [plates, setPlates] = useState([]);
 
-    const history = useHistory();
-    const [cookies] = useCookies(['auth.user']);
+    const [products, setProducys] = useState([]);
 
-    const [activeCategory, setActiveCategory] = useState(0);
+	const history = useHistory();
+	const [cookies] = useCookies(['auth.user']);
 
-    const getMenu = async () => {
-        const plate = await api.getMenu(activeSearch);
-        setPlates(plate.menu);
-    }
+   	const getMenu = async () => {
+		const plate = await api.getMenu(activeSearch)
+		setPlates(plate.menu)
+	}
 
-    useEffect(() => {
-        clearTimeout(searchTimer);
-        searchTimer = setTimeout(() => {
-                setActiveSearch(headerSearch);
-        }, 1000);
-    }, [headerSearch]);
+	useEffect(() => {
+		clearTimeout(searchTimer)
+		searchTimer = setTimeout(() => {
+			setActiveSearch(headerSearch)
+		}, 1000)
+	}, [headerSearch]);
+    
 
     useEffect(() => {
         setProducys([]);
         getMenu();
     }, [activeSearch, activeCategory]);
 
+
+    //esse cara não pode tirar
     useEffect(() => {
         const getCategories = async () => {
             const cat = await api.getCategories();
@@ -58,15 +61,21 @@ export default () => {
         getCategories();
     }, []);
 
-    useEffect (() => {
-        if(!cookies['auth.user']) {
-            history.push("/");
-        }
-    }, []);
+    // useEffect(async () => {
+	// 	const cat = await api.getCategories()
+	// 	setCategories(cat)
+	// }, [])
+    //
 
-    useEffect(() => {
-        getMenu();
-    }, []);
+	useEffect(() => {
+		if (!cookies['auth.user']) {
+			history.push('/')
+		}
+	}, []);
+
+	useEffect(() => {
+		getMenu()
+	}, []);
 
     return (
         <Container>
@@ -75,40 +84,28 @@ export default () => {
                     <>
                         <CategoryArea>
                             <strong>Selecione o dia:</strong>
-                            <CategoryList>
-                                <CategoryItem data={{ 
-                                    id: 1,
-                                    title:'Todos os dias',
-                                    image:'/assets/segunda_copia_2.png' 
-                                }}
-                                
-                                activeCategory={activeCategory}
-                                setActiveCategory={setActiveCategory}
-                            
-                                />
-                                {categories.map((item, index) => ( 
-                                    <CategoryItem 
-                                        key={index} 
-                                        data={item} 
-                                        activeCategory={activeCategory}
-                                        setActiveCategory={setActiveCategory}
-                                    />
-                                ))}
-                            </CategoryList>
+						    <CategoryList>
+						    	{categories.map((item, index) => (
+						    		<CategoryItem
+						    			key={index}
+						    			data={item}
+						    			activeCategory={activeCategory}
+						    			setActiveCategory={setActiveCategory}
+						    		/>
+						    	))}
+						    </CategoryList>  
                         </CategoryArea>
                     </>
                 }
 
-                {plates.length > 0 && 
-                    <ProductAreaAltoRoda>
-                        <TextMenu> Cardápio </TextMenu>
-                        <ProductListAltoRoda>
-                            { plates.map((item, index, id) => (
-                                <Plates key={index} data={item} id={id} />
-                            ))}
-                        </ProductListAltoRoda>
-                    </ProductAreaAltoRoda>    
-                }
+                {activeCategory !== 0 && plates.length > 0 && (
+			    	<ProductAreaAltoRoda>
+			    		<TextMenu> Cardápio </TextMenu>
+			    		<ProductListAltoRoda>
+			    			<Plates plates={plates} id={activeCategory} />
+			    		</ProductListAltoRoda>
+			    	</ProductAreaAltoRoda>
+			    )}
         </Container>
     );
 }
